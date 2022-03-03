@@ -25,6 +25,7 @@ public class CustomerController {
     @PostMapping("/registration")
     public Users registerCustomer(@RequestBody UsersDto customer) throws EmailAlreadyExistException, EmailIdFormatException {
         String tempEmailId = customer.getEmail();
+        System.out.println("Welcome");
         Users user=new Users();
         if (tempEmailId != null && !"".equals(tempEmailId)) {
             Users userObj = customerService.fetchUserByEmailId(tempEmailId);
